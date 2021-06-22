@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximun-scale=3.0, minimum-scale=1.0">
+        <link rel="stylesheet" >
+        <script src="https://kit.fontawesome.com/4b2829fcd6.js"></script>
+        <link rel="stylesheet" href="{% static 'css/estilo_login.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}">
+        <script src="{% static 'js/validarLogin.js' %}"></script>
+        
+    </head>
+
+    <body>
+        <!--Configuracion del menu -->
+  <div class="contenedor">
+        <nav class="menuCSS3">
+            <ul>
+          <!-- llama las url de las paginas html de template -->
+                <<li><a href="{% url 'menu' %}">Tienda TCG</a></li>
+            <li><a href="{% url 'formulario' %}">Compra</a>
+                <ul>
+                    <!-- llama las url de las paginas html de template -->
+                    <li><a href="{% url 'simple' %}">Paquetes</a></li>
+                    
+                </ul>
+            </li>
+                <li><a href="{% url 'login' %}">Inicio de Sesion</a>
+                    <ul>
+                      <li><a href="{% url 'registro' %}">Registrarse</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Contacto">Contacto</a>
+                    <ul>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+    
+                </li>
+            </ul>
+        </nav>
+    
+    </div>
+    <!--termino de configuracion del menu-->
+        <form class="login" method="POST" action="{% url 'menu' %}" onsubmit="return validarLogin();">
+            {% csrf_token %}
+            <h1>Inicia Sesion</h1>
+            <div class="contenedorForm">
+
+                <div class="input-contenedor">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="correo" id="correo" placeholder="Correo Electronico">
+                </div>
+
+                <div class="input-contenedor">
+                    <i class="fas fa-key"></i>
+                    <input type="password" name="clave" id="clave" placeholder="Contraseña">
+                </div>
+
+                <input type="submit" value="Iniciar Sesion" class="button">
+
+
+                <p>¿No tienes una cuenta? <a class="link" href="{% url 'registro' %}">Resgistrate</a></p>
+
+            </div>
+        </form>
+    </body>
+
+</html>

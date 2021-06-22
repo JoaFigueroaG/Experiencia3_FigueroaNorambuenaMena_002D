@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<!-- carga los archivos de la carpeta static -->
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Llama el css de la carpeta static -->
+    <link rel="stylesheet" href="{% static 'css/estilo_S.css' %}">
+    <!--Tipo responsive en forma cascada-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body >
+  <!--Configuracion del menu -->
+  <div class="contenedor1">
+    <nav class="menuCSS3">
+        <ul>
+            <!-- llama las url de las paginas html de template -->
+            <li><a href="{% url 'menu' %}">Tienda TCG</a></li>
+            <li><a href="{% url 'formulario' %}">Compras</a>
+                <ul>
+                    <!-- llama las url de las paginas html de template -->
+                    <li><a href="{% url 'simple' %}">Paquetes</a></li>
+                   
+                </ul>
+            </li>
+            <li><a href="{% url 'login' %}">Inicio de Sesion</a>
+                <ul>
+                  <li><a href="{% url 'registro' %}">Registrarse</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contacto</a>
+                <ul>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ul>
+
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+             <br><br><br><br><br><br><br><br><br>
+        <section id="main">
+
+            <!--Separa las Imagenes-->
+            <article class="col">
+                <!--Primera Imagen-->
+                <div class="image">
+                    <div class="container">
+                        <!-- Llama las imagenes guardadas en la carpeta static -->
+                        <img src="{% static 'img_S/Simple.jpg' %}" alt="" class="image">
+                            <div class="overlay">
+                                <div class="text">Paquete Simple de Cartas</div>
+                                <div class="text1">2 sobres angeles y demonios</div>
+                                <div class="text2">1 paquete de conjuros</div>
+                                <div class="text3"> 20.000$</div>
+                            </div>
+                    </div>
+                </div>
+            </article>
+            <article class="col">
+                <!--Seguna Imagen-->
+                <div class="img">
+                    <div class="container">
+                        <!-- Llama las imagenes guardadas en la carpeta static -->
+                        <img src="{% static 'img_S/doble.jpg' %}" alt="" class="image">
+                            <div class="overlay">
+                                <div class="text">Paquete doble de cartas</div>
+                                <div class="text1">1 Paquete edicion especial ajedrez</div>
+                                <div class="text2">1 paquete de conjuros</div>
+                                <div class="text3"> 30.000$</div>
+                            </div>
+                    </div>
+                </div>
+            </article>
+            <article class="col">
+                <div class="img">
+                    <!--Tercera Imagen-->
+                    <div class="container" >
+                        <!-- Llama las imagenes guardadas en la carpeta static -->
+                        <img src="{% static 'img_S/deluxe.jpg' %}" alt="" class="image">
+                            <div class="overlay">
+                                <div class="text">Paquete Deluxe de cartas</div>
+                                <div class="text1">1 Paquete edicion de conjuros</div>
+                                <div class="text2">Display + Kit de presentacion A&D</div>
+                                <div class="text3"> 50.000$</div>
+                            </div>
+                    </div>
+                    </div>
+            </article>
+        </section>
+    
+</body>
+</html>
+

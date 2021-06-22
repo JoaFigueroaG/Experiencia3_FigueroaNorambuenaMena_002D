@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximun-scale=3.0, minimum-scale=1.0">
+        <link rel="stylesheet" >
+        <script src="https://kit.fontawesome.com/4b2829fcd6.js"></script>
+        <link rel="stylesheet" href="{% static 'css/estilo_login.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}">
+        <script src="{% static 'js/validarRegistro.js' %}"></script>
+        
+    </head>
+
+    <body>
+        <!--Configuracion del menu -->
+    <div class="contenedor">
+        <nav class="menuCSS3">
+            <ul>
+          <!-- llama las url de las paginas html de template -->
+                <li><a href="{% url 'menu' %}">Tienda TCG</a></li>
+                <li><a href="{% url 'formulario' %}">Compras</a>
+                    <ul>
+              <!-- llama las url de las paginas html de template -->
+                        <li><a href="{% url 'simple' %}">Paquetes</a></li>
+                     
+                    </ul>
+                </li>
+                <li><a href="{% url 'login' %}">Inicio de Sesion</a>
+                    <ul>
+                      <li><a href="{% url 'registro' %}">Registrarse</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Contacto">Contacto</a>
+                    <ul>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+    
+                </li>
+            </ul>
+        </nav>
+    
+    </div>
+    <!--termino de configuracion del menu-->
+
+        <form class="login" method="POST" action="{% url 'registro' %}"  onsubmit="return validarRegistro();">
+            {% csrf_token %}
+            <h1>Registrate</h1>
+            <div class="contenedorForm">
+
+                <div class="input-contenedor">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" name="rut_client" id="rut_client" placeholder="Ingrese su rut" autofocus required>
+                    
+                </div>
+
+                <div class="input-contenedor">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="first_name" id="first_name" placeholder="Ingrese su nombre" autofocus required>
+                    
+                </div>
+                
+                
+                <div class="input-contenedor">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" name="email" id="email" placeholder="Correo Electronico" autofocus required>
+                    
+                </div>
+
+                <div class="input-contenedor">
+                    <i class="fas fa-key"></i>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" autofocus required>
+                    
+                </div>
+
+                <div class="input-contenedor">
+                    <i class="fas fa-key"></i>
+                    <input type="password" name="clave2" id="clave2" placeholder="Vuelva a Ingresar su Contraseña">
+                </div>
+
+
+                <input type="submit" value="Registrarse" class="button">
+                <p>Al registrarte aceptas nuestras Condiciones de uso y Politica de privacidad</p>
+                <p>¿Ya tienes una cuenta? <a class="link" href="{% url 'login' %}">Inicia Sesion</a></p>
+
+            </div>
+        </form>
+    </body>
+
+</html>
